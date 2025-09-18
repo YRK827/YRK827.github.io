@@ -16,16 +16,16 @@
 
 ---
 
-- local = 내 컴퓨터
-- remote = github
-- push = local → remote로 올리기
-- pull = remote → local로 가져온 뒤 merge
-- fetch = remote → local로 가져오기만 함
+local = 내 컴퓨터
+remote = github
+push = local → remote로 올리기
+pull = remote → local로 가져온 뒤 merge
+fetch = remote → local로 가져오기만 함  
 
-- https://norlin.netlify.app/ => full path, full url
-- /home/docs/github => Absolute path
-- /docs/github/readme.md => absolute path with file name
-- {/docs/github/}img/image_00.png => `img/image_00.png` => relative path with file name
+https://norlin.netlify.app/ => full path, full url
+/home/docs/github => Absolute path
+/docs/github/readme.md => absolute path with file name
+{/docs/github/}img/image_00.png => `img/image_00.png` => relative path with file name  
 
 
 **Markdown**
@@ -33,10 +33,13 @@
     - ! = markdown에서 이미지를 표시한다는 뜻 (! 없으면 그냥 링크로 인식.)
     - [text] = 이미지 설명글
     - (image path) = 삽입하고 싶은 이미지의 relative path 
+    - ex: ![test](img/image_01.png)
 - 링크 삽입: [text][URL]
     - 하이퍼링크 기능 (외부 링크: full path)
-- 페이지 내부 이동용 스크롤: [이름](#path)
+    - ex: [google](https://www.google.com)
+- 페이지 내부 이동용 스크롤: [이름](# path)
     - 지정한 위치로 스크롤
+    - ex: [test](#GitHub)
 
 ---
 
