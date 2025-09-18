@@ -4,9 +4,9 @@
 2. Repository 생성
     - 좌측 상단 current repository → add → create new repository
     - local path: 내 컴퓨터 어떤 폴더에 repository가 저장될지 (위치 외워두기)
-        - 위치 까먹었다면: command + shift + J
+        - 위치 까먹었다면: 좌측 상단 우클릭 -> reveal in finder -> 
     - README: repository를 설명하는 문서. (치크하는게 좋음)
-    - Git Ignore: 선택 X
+    - Git Ignore: 아직 수업에서 진행되지 않은 내용.
     - License: MIT License 선택 (누구든 사용할 수 있게 허용하는 것)
 3. Repository 생성 완료
     - 컴퓨터 내의 local repository가 생성된 것
@@ -16,11 +16,15 @@
 
 ---
 
-local = 내 컴퓨터
-remote = github
-push = local → remote로 올리기
-pull = remote → local로 가져온 뒤 merge
-fetch = remote → local로 가져오기만 함  
+local = 내 컴퓨터 <br/>
+remote: github
+
+push: local → remote로 올리기/
+
+pull: remote → local로 가져온 뒤 merge
+
+fetch:  remote → local로 가져오기만 함  
+
 
 https://norlin.netlify.app/ => full path, full url
 /home/docs/github => Absolute path
@@ -40,6 +44,8 @@ https://norlin.netlify.app/ => full path, full url
 - 페이지 내부 이동용 스크롤: [이름](# path)
     - 지정한 위치로 스크롤
     - ex: [test](#GitHub)
+
+[GitHub_Markdown_문법]()
 
 ---
 
