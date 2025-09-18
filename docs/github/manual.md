@@ -16,11 +16,11 @@
 
 ---
 
-local = 내 컴퓨터 <br/>
+local = 내 컴퓨터
+
 remote: github
 
-push: local → remote로 올리기/
-
+push: local → remote로 올리기\
 pull: remote → local로 가져온 뒤 merge
 
 fetch:  remote → local로 가져오기만 함  
