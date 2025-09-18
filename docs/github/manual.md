@@ -82,4 +82,4 @@ https://norlin.netlify.app/ => full path, full url
         - remote와 local이 같은 상태인지
     2. branch 확인
         - 어느 branch에서 작업할지 선택
-        - 잘못된 branch에서 작업한다면 이후에 옮기거나 수정하는 과정을 또 거쳐야 함
+        - 잘못된 branch에서 작업한다면 이후에 옮기거나 수정하는 과정을 또 거쳐야 함 
