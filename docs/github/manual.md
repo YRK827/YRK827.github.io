@@ -45,7 +45,7 @@ https://norlin.netlify.app/ => full path, full url
     - 지정한 위치로 스크롤
     - ex: [test](#GitHub)
 
-[GitHub_Markdown_문법]()
+[GitHub_Markdown_문법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
 
 ---
 
