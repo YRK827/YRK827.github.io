@@ -1,91 +1,112 @@
+**How to Create a GitHub Repository**
 
-**GitHub Repository 만드는 방법**
-1. GitHub desktop 실행
-2. Repository 생성
-    - 좌측 상단 current repository → add → create new repository
-    - local path: 내 컴퓨터 어떤 폴더에 repository가 저장될지 (위치 외워두기)
-        - 위치 까먹었다면: 좌측 상단 우클릭 -> reveal in finder -> 
-    - README: repository를 설명하는 문서. (치크하는게 좋음)
-    - Git Ignore: 아직 수업에서 진행되지 않은 내용.
-    - License: MIT License 선택 (누구든 사용할 수 있게 허용하는 것)
-3. Repository 생성 완료
-    - 컴퓨터 내의 local repository가 생성된 것
-4. GitHub에 업로드 (Publish)
-    - 우측 상단 publish repository
-        - keep this code private: 체크하면 private, 체크 안 하면 public repository로 전환
+1. Open GitHub Desktop
+2. Create a Repository
+
+   * Top left corner → Current Repository → Add → Create New Repository
+   * Local path: The folder on your computer where the repository will be saved (remember this location)
+
+     * If you forgot the location: Right-click the top left corner → Reveal in Finder →
+   * README: A document that describes your repository. (It’s recommended to check it)
+   * Git Ignore: Not yet covered in class.
+   * License: Choose MIT License (allows anyone to use it)
+3. Repository creation complete
+
+   * A local repository has been created on your computer.
+4. Upload to GitHub (Publish)
+
+   * Top right corner → Publish repository
+
+     * Keep this code private: Checked = private / Unchecked = public repository
 
 ---
 
-local = 내 컴퓨터
+local = your computer
 
-remote: github
+remote = GitHub
 
-push: local → remote로 올리기\
-pull: remote → local로 가져온 뒤 merge
+push = upload from local → remote
+pull = fetch from remote → merge into local
 
-fetch:  remote → local로 가져오기만 함  
+fetch = only fetch from remote → local (no merge)
 
-
-https://norlin.netlify.app/ => full path, full url
+[https://norlin.netlify.app/](https://norlin.netlify.app/) => full path, full URL
 /home/docs/github => Absolute path
 /docs/github/readme.md => absolute path with file name
-{/docs/github/}img/image_00.png => `img/image_00.png` => relative path with file name  
+{/docs/github/}img/image_00.png => `img/image_00.png` => relative path with file name
 
+---
 
 **Markdown**
-- 이미지 삽입: ![text](image path)
-    - ! = markdown에서 이미지를 표시한다는 뜻 (! 없으면 그냥 링크로 인식.)
-    - [text] = 이미지 설명글
-    - (image path) = 삽입하고 싶은 이미지의 relative path 
-    - ex: ![test](img/image_01.png)
-- 링크 삽입: [text][URL]
-    - 하이퍼링크 기능 (외부 링크: full path)
-    - ex: [google](https://www.google.com)
-- 페이지 내부 이동용 스크롤: [이름](# path)
-    - 지정한 위치로 스크롤
-    - ex: [test](#GitHub)
 
-[GitHub_Markdown_문법](https://gist.github.com/ihoneymon/652be052a0727ad59601)
+* Insert image: ![text](image path)
+
+  * ! = indicates an image in markdown (without it, it’s just a link)
+  * [text] = image description
+  * (image path) = relative path of the image to be inserted
+  * ex: ![test](img/image_01.png)
+* Insert link: [text][URL]
+
+  * Creates a hyperlink (external link = full path)
+  * ex: [google](https://www.google.com)
+* Internal page scroll: [name](# path)
+
+  * Scrolls to a specified section
+  * ex: [test](#GitHub)
+
+[GitHub_Markdown_Syntax](https://gist.github.com/ihoneymon/652be052a0727ad59601)
 
 ---
 
 **Commit & Push**
-1. local 폴더에 들어가서 new file 생성
-2. github desktop에 들어가보면 changes 항목에 생성한 파일이 보임
-3. commit 하기
-    - summary에 메세지 작성(commit 내용 요약)
-    - commit to main 클릭 (commit하기 전에 파일 저장하기)
-    - commit: 마치 '세이브 포인트'를 찍듯 현재 상태를 저장하는 행위
-4. github에 반영(push)
-    - 왜? : commit하면 내 컴퓨터에만 저장됨. push를 통해 저장 사항을 remote(원격 repository)에 복사
-    - 우측 상단 push origin
-    - github website에 접속해보면 파일이 올라와있음
+
+1. Go to the local folder and create a new file
+2. In GitHub Desktop, check the “Changes” tab — the new file will appear
+3. Commit
+
+   * Write a message in the Summary field (summary of your commit)
+   * Click “Commit to main” (save the file before committing)
+   * Commit: Like creating a “save point” that records the current state
+4. Reflect changes on GitHub (push)
+
+   * Why? Because committing only saves it on your computer. Pushing copies it to the remote repository.
+   * Top right → Push origin
+   * You’ll see your file uploaded on the GitHub website
 
 ---
 
-**Branch(main으로부터 독립된 작업 공간)**
-- 특히 여러 사람과 협업할 때:
-    - main에서 함께 작업하면 서로가 서로의 코드를 덮어씌우게 되는 등의 conflict가 일어날 수 있음 → 이를 방지하기 위한게 branch
-    - 팀원이 각자 branch에서 작업 → 나중에 merge
-    - 서로 main에 바로 영향을 안 줌
+**Branch (Independent workspace separate from main)**
 
-[Branch 생성]
-1. 상단 바에 current branch → new branch 
-2. 이미 branch가 1개 이상 존재하는 경우, branch를 뻗어나갈 위치 선택
-    - main 선택: main에서 new branch 생성
-    - (name) branch 선택: 선택한 branch에서 new branch 생성
-3. 생성이 완료되면 자유롭게 branch에서 작업
-4. github에 업로드
-    - 우측 상단 publish brance 클릭
-    - remote(GitHub web)에 branch가 생성됨
+* Especially when working with a team:
+
+  * If everyone works directly on main, conflicts like overwriting each other’s code may occur → branch prevents this
+  * Each teammate works on their own branch → later merged
+  * Changes don’t directly affect main
+
+[Create a Branch]
+
+1. Top bar → Current Branch → New Branch
+2. If one or more branches already exist, choose where to branch from
+
+   * Choose main: create a new branch from main
+   * Choose (name) branch: create a new branch from the selected branch
+3. Once created, you can freely work in your branch
+4. Upload to GitHub
+
+   * Top right → Publish branch
+   * The branch will be created on remote (GitHub web)
 
 ---
 
-**작업 순서**
+**Workflow**
+
 1. GitHub Desktop
-    1. repository 확인
-        - 내가 수정하려는 파일이 있는 repo가 맞는지
-        - remote와 local이 같은 상태인지
-    2. branch 확인
-        - 어느 branch에서 작업할지 선택
-        - 잘못된 branch에서 작업한다면 이후에 옮기거나 수정하는 과정을 또 거쳐야 함 
+
+   1. Check repository
+
+      * Make sure it’s the correct repo containing the files you want to edit
+      * Check that remote and local are in sync
+   2. Check branch
+
+      * Choose which branch to work in
+      * If you work in the wrong branch, you’ll have to move or fix it later
