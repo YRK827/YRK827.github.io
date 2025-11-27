@@ -20,8 +20,14 @@ const server = http.createServer(async (req, res) => {
   console.log('received request!')
   console.table({ url: req.url })
 
-  const reqPath = req.url == '/' ? '/index.html' : req.url
-  let filehandle = await fs.open(`${rootdir}__layout/header.html`, 'r')
+  const rawURL = req.url == '/' ? '/index.yrk' : req.url
+  const rawURLs = rawURL.split('?')
+  const reqPath = rawURLs[0]
+  const rawParams = JSON.parse(`{"${rawURLs[1].replaceAll('=', '":"').replaceAll('&', '","')}"}`)
+
+  const isUser = (rawParams.id == 'yrk' && rawParams.pw == '1234') ? 'user' : 'none'
+  
+  let filehandle = await fs.open(`${rootdir}/__layout/header_${isUser}.yrk`, 'r')
 
   const header = await filehandle.readFile('utf-8')
 
@@ -31,7 +37,7 @@ const server = http.createServer(async (req, res) => {
   catch(err) {
     console.error(err)
     res.writeHead(404, { 'Content-Type': 'text/html' })
-    res.end(`${header}<h1>Not found</h1>\n<a href="/">main</a>\n`)
+    res.end(`${header}<h1>Not found: ${reqPath}</h1>\n<a href="/">main</a>\n`)
 
     return
   }
@@ -40,6 +46,9 @@ const server = http.createServer(async (req, res) => {
   res.end(header + (await filehandle.readFile('utf-8')))
 
   filehandle.close()
+
+  // res.writeHead(200, { 'Content-Type': 'text/html' })
+  // res.end(`<h1>Page URL: ${reqPath}</h1>`)
 })
 
 server.listen(PORT, () => console.log(`http://localhost:${PORT}/`))

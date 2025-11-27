@@ -1,0 +1,11 @@
+<nav><h1>YRK</h1>
+    <a href="/">main</a>
+    <a href="/section_0.yrk">section 0</a>
+    <a href="/section_1.yrk">section 1</a>
+    <div>Sub Sections</div>
+    <ul>
+        <li>
+            <a href="/sub-section/0.yrk">0.yrk</a>
+        </li>
+    </ul>
+</nav>
