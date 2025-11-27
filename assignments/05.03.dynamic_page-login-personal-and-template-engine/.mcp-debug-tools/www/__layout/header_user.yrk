@@ -10,5 +10,5 @@
     </ul>
 </nav>
 <div>
-    WELCOME, USER!
+    WELCOME, <@name@>!
 </div>

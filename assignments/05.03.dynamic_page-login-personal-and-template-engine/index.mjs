@@ -20,12 +20,13 @@ const server = http.createServer(async (req, res) => {
   console.log('received request!')
   console.table({ url: req.url })
 
-  const rawURL = req.url == '/' ? '/index.yrk' : req.url
-  const rawURLs = rawURL.split('?')
-  const reqPath = rawURLs[0]
-  const rawParams = JSON.parse(`{"${rawURLs[1].replaceAll('=', '":"').replaceAll('&', '","')}"}`)
+  const rawURLs = req.url.split('?')
+  const reqPath = rawURLs[0] == '/' ? '/index.yrk' : rawURLs[0]
+  // const rawParams = rawURLs[1] ? JSON.parse(`{"${rawURLs[1].replaceAll('=', '":"').replaceAll('&', '","')}"}`) : null
+  // const isUser = (rawParams?.id == 'yrk' && rawParams?.pw == '1234') ? 'user' : 'none'
 
-  const isUser = (rawParams.id == 'yrk' && rawParams.pw == '1234') ? 'user' : 'none'
+  const rawParams = rawURLs[1] ? JSON.parse(`{"${rawURLs[1].replaceAll('=', '":"').replaceAll('&', '","')}"}`) : null
+  const isUser = (rawParams?.id == 'yrk' && rawParams?.pw == '1234') ? 'user' : 'none'
   
   let filehandle = await fs.open(`${rootdir}/__layout/header_${isUser}.yrk`, 'r')
 
@@ -39,11 +40,25 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(404, { 'Content-Type': 'text/html' })
     res.end(`${header}<h1>Not found: ${reqPath}</h1>\n<a href="/">main</a>\n`)
 
+    filehandle.close()
+    
     return
   }
 
+  const body = await filehandle.readFile('utf-8')
+  const templateClient = `<@header@>(id: <@id@>)<@body@>`
+
+  //#region template logic
+  let hHtml = header.replaceAll('<@name@>', 'yerin')
+  let html = templateClient.replaceAll('<@id@>', rawParams?.id ?? '')
+  //#endregion template logic
+
   res.writeHead(200, { 'Content-Type': 'text/html' })
-  res.end(header + (await filehandle.readFile('utf-8')))
+  res.end(
+    html
+    .replaceAll('<@header@>', hHtml)
+    .replaceAll('<@body@>', body)
+  )
 
   filehandle.close()
 
